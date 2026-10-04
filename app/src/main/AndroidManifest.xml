@@ -15,6 +15,10 @@
         android:theme="@android:style/Theme.Material.Light.NoActionBar">
 
         <meta-data android:name="androidx.car.app.minCarApiLevel" android:value="5" />
+        <!-- Android Auto bu bildirim olmadan uygulamayı listede göstermez -->
+        <meta-data
+            android:name="com.google.android.gms.car.application"
+            android:resource="@xml/automotive_app_desc" />
 
         <activity
             android:name=".MainActivity"

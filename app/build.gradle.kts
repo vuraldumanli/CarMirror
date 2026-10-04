@@ -11,15 +11,24 @@ android {
         applicationId = "com.vural.carmirror"
         minSdk = 29
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1"
+    }
+
+    signingConfigs {
+        // Sabit anahtar: güncellemeler eski sürümü silmeden kurulabilsin
+        create("fixed") {
+            storeFile = file("carmirror.jks")
+            storePassword = "carmirror"
+            keyAlias = "carmirror"
+            keyPassword = "carmirror"
+        }
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
-            // Kişisel kullanım: debug anahtarıyla imzala, doğrudan kurulabilsin
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("fixed")
         }
     }
     compileOptions {

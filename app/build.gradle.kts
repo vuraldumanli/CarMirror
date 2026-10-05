@@ -11,8 +11,8 @@ android {
         applicationId = "com.vural.carmirror"
         minSdk = 29
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.1"
+        versionCode = 3
+        versionName = "1.2"
     }
 
     signingConfigs {
@@ -29,6 +29,8 @@ android {
         release {
             isMinifyEnabled = false
             signingConfig = signingConfigs.getByName("fixed")
+            // Android Auto "Bilinmeyen kaynaklar" yalnızca geliştirici derlemelerini kabul ediyor olabilir
+            isDebuggable = true
         }
     }
     compileOptions {
